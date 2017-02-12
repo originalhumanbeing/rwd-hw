@@ -1,0 +1,91 @@
+// basic setting
+body
+  padding: 0
+  margin: 0 6.25%
+  box-sizing: border-box
+  &*,
+  &::before,
+  &::after
+    box-sizing: inherit
+
+// container
+.container
+  width: 100%
+  margin: 0, auto
+  background: linear-gradient(to bottom, transparent 23px, #000 23px), linear-gradient(to right, hsla(226, 54%, 75%, 0.24) 81.818181818181818%, transparent 81.818181818181818%)
+  background-size: 1px 24px, 26.19047619047619% 1px
+  // 22.916666666666667% bg-size
+  // 배경사이즈는 width, height 순
+  // #fff 21.428571428571429%, #3d4658 21.428571428571429%,
+
+// row module
+.row::after
+  content: ''
+  display: block
+  clear: both
+
+// column module
+[class="col-"]
+  float: left
+  margin-left: 10px
+  margin-right: 10px
+
+// mobile-column
+$container-m-width: 420px !default
+$column-m-width: 110px !default
+@for $i from 1 through 12
+  .col-m-#{$i}
+    width: $column-m-width/$container-m-width*$i*100%
+
+// mobile push module
+@for $i from 1 through 11
+  .push-m-#{$i}
+    position: relative
+    left: $column-m-width/$container-m-width*$i*100%
+
+// tablet일 때 container
+@media screen and (min-width: 760px)
+  body
+    margin: 0 3.947368421052632%
+
+  .container
+    background: linear-gradient(to bottom, transparent 23px, #000 23px), linear-gradient(to right, hsla(226, 54%, 75%, 0.24) 77.777777777777778%, transparent 77.777777777777778%)
+    background-size: 1px 24px, 12.857142857142857% 1px
+
+  // tablet-column
+  $container-t-width: 700px !default
+  $column-t-width: 90px !default
+  @for $i from 1 through 12
+    .col-t-#{$i}
+      width: $column-t-width/$container-t-width*$i*100%
+
+  // tablet push module
+  @for $i from 1 through 11
+    .push-t-#{$i}
+      position: relative
+      left: $column-t-width/$container-t-width*$i*100%
+
+
+// desktop일 때 container
+@media screen and (min-width: 1024px)
+  body
+    margin: 0 13.846153846153846
+
+  .container
+    width: 940px
+    margin: 0 auto
+    background: linear-gradient(to bottom, transparent 23px, #000 23px), linear-gradient(to right, hsla(226, 54%, 75%, 0.24) 75%, transparent 75%)
+    background-size: 1px 24px, 8.51063829787234% 1px
+
+  // desktop-column
+  $container-d-width: 940px !default
+  $column-d-width: 80px !default
+  @for $i from 1 through 12
+    .col-d-#{$i}
+      width: $column-d-width/$container-d-width*$i*100%
+
+  // tablet push module
+  @for $i from 1 through 11
+    .push-d-#{$i}
+      position: relative
+      left: $column-d-width/$container-d-width*$i*100%
