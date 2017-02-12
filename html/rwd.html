@@ -14,9 +14,9 @@
       <h1 class="logo col-1"><i class="fa fa-paint-brush" aria-hidden="true"></i>
         LOGO
       </h1>
-      <nav class="menu col-m-1 push-m-3">
-        <ul>
-          <li><a class="bar" href="#"></a><i class="fa fa-bars fa-2x" aria-hidden="true"></i></li>
+      <nav class="menu col-m-1 push-m-3 col-d-10 push-d-4">
+        <button type="button" class="toggle"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></button>
+        <ul class="nav-list">
           <li><a href="#">HOME</a></li>
           <li><a href="#">ABOUT</a></li>
           <li><a href="#">WORK</a></li>
@@ -90,5 +90,12 @@
       <span>Copyright © 2016 Inyoung.</span>
     </footer>
   </div>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script>
+  $('nav .toggle').click(function(e){
+  	$('nav .nav-list').toggle();
+  });
+  </script>
 </body>
 </html>
